@@ -39,7 +39,7 @@ const Home = props => {
               <Lottie
                 source={Images.blank}
                 autoPlay
-                loop
+                loop={false}
                 style={styles.lottie}
               />
             }

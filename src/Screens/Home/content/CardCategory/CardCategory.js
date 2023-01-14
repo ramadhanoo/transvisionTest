@@ -15,7 +15,7 @@ const CardCategory = ({onPressItem, data}) => {
       style={styles.container}>
       <View style={styles.imageContainerStyle}>
         <Image
-          resizeMode={'contain'}
+          resizeMode={'stretch'}
           source={{uri: data.couponBrandLogo}}
           style={styles.banner}
         />
@@ -29,7 +29,7 @@ const CardCategory = ({onPressItem, data}) => {
             {data.couponBenefitValue}
           </Text>
           <Text numberOfLines={1} style={styles.couponBenefitValueDesc}>
-            Off
+            {data.couponBenefitValue.indexOf('%') !== -1 ? 'Off' : ''}
           </Text>
         </View>
         <Text numberOfLines={1} style={styles.promo}>
