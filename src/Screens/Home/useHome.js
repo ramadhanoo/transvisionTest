@@ -18,7 +18,7 @@ export const useHome = () => {
 
   useEffect(() => {
     dispatch(CategoryActions.setCategoryReq({actionType: 'load'}));
-    //dispatch(CouponActions.setCouponReq({actionType: 'load'}));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -41,8 +41,8 @@ export const useHome = () => {
     dispatch(CategoryActions.setCategoryReq({actionType: 'refresh'}));
   };
 
-  const onPressDetail = () => {
-    NavigationServices.push('home.detail');
+  const onPressDetail = item => {
+    NavigationServices.push('home.detail', {data: item});
   };
 
   return {

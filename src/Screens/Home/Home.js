@@ -20,8 +20,8 @@ moment.locale('id');
 
 const Home = props => {
   const {state, actions} = useHome();
-  const {actionsData, onPressDetail, actionsTabs, refreshData} = actions;
-  const {activeId, categoryRedux, couponRedux, scrolling} = state;
+  const {onPressDetail, actionsTabs, refreshData} = actions;
+  const {categoryRedux, couponRedux, scrolling} = state;
   return (
     <BaseScreens
       safeAreaColor={Colors.headerBaseColor}
@@ -58,7 +58,10 @@ const Home = props => {
             }
             style={styles.containerList}
             renderItem={({item}) => (
-              <CardCategory onPressItem={onPressDetail} data={item} />
+              <CardCategory
+                onPressItem={() => onPressDetail(item)}
+                data={item}
+              />
             )}
             keyExtractor={(item, i) => i.toString()}
           />

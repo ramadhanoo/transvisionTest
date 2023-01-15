@@ -37,7 +37,7 @@ const size = {
   h1: 38,
   h2: 34,
   h3: 30,
-  h4: 24,
+  h4: 22,
   h5: 20,
   h6: 19,
   medium: normalize(20),
