@@ -1,4 +1,6 @@
 # transvisionTest
+## Install APK:
+please open the APK release folder to download the apk
 ![alt-text-1](./src/Images/home.png "splash screen")
 ## How to run:
 1. yarn install
