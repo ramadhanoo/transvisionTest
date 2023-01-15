@@ -37,6 +37,8 @@ const Home = props => {
           <FlatList
             refreshControl={
               <RefreshControl
+                tintColor={Colors.white}
+                titleColor={Colors.white}
                 refreshing={couponRedux.isRefresh}
                 onRefresh={refreshData}
               />

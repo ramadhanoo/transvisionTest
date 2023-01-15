@@ -69,10 +69,12 @@ Detail.options = {
   topBar: {
     visible: false,
   },
-  modalPresentationStyle: 'overCurrentContext',
   layout: {
     backgroundColor: 'transparent',
     componentBackgroundColor: 'transparent',
+  },
+  statusBar: {
+    translucent: true,
   },
 };
 
