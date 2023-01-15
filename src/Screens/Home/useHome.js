@@ -37,12 +37,8 @@ export const useHome = () => {
     );
   };
 
-  const onPressProduct = (item, index) => {
-    
-
-    // dispatch(
-    //   JokesActions.setDataJokesReq({type: item.actionName, id: item.id}),
-    // );
+  const refreshData = () => {
+    dispatch(CategoryActions.setCategoryReq({actionType: 'refresh'}));
   };
 
   const onPressDetail = () => {
@@ -60,6 +56,7 @@ export const useHome = () => {
     },
     actions: {
       actionsTabs,
+      refreshData,
       onPressDetail,
     },
     data: {},
