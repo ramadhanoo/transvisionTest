@@ -1,19 +1,22 @@
 package com.transvision;
-
+import android.os.Bundle;
 import com.reactnativenavigation.NavigationActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends NavigationActivity {
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this, R.style.SplashScreenTheme, true);  // here
+        super.onCreate(savedInstanceState);
+    }
   
-
-  
-
   public static class MainActivityDelegate extends ReactActivityDelegate {
     public MainActivityDelegate(NavigationActivity activity, String mainComponentName) {
       super(activity, mainComponentName);
     }
+
 
     @Override
     protected ReactRootView createRootView() {
