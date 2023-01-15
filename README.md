@@ -1,5 +1,5 @@
 # transvisionTest
-![alt-text-1](./src/Images/splash.png "title-1") ![alt-text-2](](./src/Images/splash.png "title-2")
+![alt-text-1](./src/Images/splashscreen.png "splash screen") ![alt-text-2](](./src/Images/home.png "home")
 ## How to run:
 1. yarn install
 2. npx pod-install
