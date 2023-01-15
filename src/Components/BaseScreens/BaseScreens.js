@@ -16,7 +16,7 @@ export const BaseScreens = React.forwardRef(({children, ...props}, ref) => {
   const themes = useSelector(ThemeSelectors.getColors);
   const isDark = useSelector(state => state.theme.dark);
   const styles = styling(props, themes);
-  const {transparent} = props;
+  const {transparent, barColor} = props;
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
@@ -33,7 +33,7 @@ export const BaseScreens = React.forwardRef(({children, ...props}, ref) => {
 
   return (
     <View style={styles.boxContainer}>
-      {Platform.OS === 'ios' ? <StatusBar barStyle={'light-content'} /> : null}
+      {Platform.OS === 'ios' ? <StatusBar barStyle={barColor} /> : null}
       {transparent === false ? <SafeAreaView style={styles.container} /> : null}
       <View {...props}>{children}</View>
     </View>
@@ -44,4 +44,5 @@ BaseScreens.defaultProps = {
   safeAreaColor: Colors.white,
   transparent: false,
   colorBackground: Colors.background,
+  barColor: 'light-content',
 };

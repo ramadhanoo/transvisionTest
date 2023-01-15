@@ -2,7 +2,14 @@ import React from 'react';
 import styles from './Home.styles';
 import {useHome} from './useHome';
 import {BaseScreens, Header, Section} from '../../Components/index';
-import {FlatList, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {
+  FlatList,
+  SafeAreaView,
+  ScrollView,
+  RefreshControl,
+  Text,
+  View,
+} from 'react-native';
 import {Colors, Images} from '../../Themes';
 import moment from 'moment';
 import BottomFilter from './content/BottomFilter/BottomFilter';
@@ -13,8 +20,8 @@ moment.locale('id');
 
 const Home = props => {
   const {state, actions} = useHome();
-  const {actionsData, onPressDetail, actionsTabs} = actions;
-  const {activeId, categoryRedux, couponRedux, scrolling} = state;
+  const {onPressDetail, actionsTabs, refreshData} = actions;
+  const {categoryRedux, couponRedux, scrolling} = state;
   return (
     <BaseScreens
       safeAreaColor={Colors.headerBaseColor}
@@ -28,6 +35,12 @@ const Home = props => {
           loadingContainerStyles={styles.containerCardBody}
           loadingIndicatorStyle={styles.loadingStyleCard}>
           <FlatList
+            refreshControl={
+              <RefreshControl
+                refreshing={couponRedux.isRefresh}
+                onRefresh={refreshData}
+              />
+            }
             ListHeaderComponent={
               couponRedux.filtredData.length !== 0 ? (
                 <Text style={styles.textHeader}>Benefit Kupon Untuk Kamu</Text>
@@ -39,13 +52,16 @@ const Home = props => {
               <Lottie
                 source={Images.blank}
                 autoPlay
-                loop
+                loop={false}
                 style={styles.lottie}
               />
             }
             style={styles.containerList}
             renderItem={({item}) => (
-              <CardCategory onPressItem={onPressDetail} data={item} />
+              <CardCategory
+                onPressItem={() => onPressDetail(item)}
+                data={item}
+              />
             )}
             keyExtractor={(item, i) => i.toString()}
           />
